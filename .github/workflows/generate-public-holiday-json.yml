@@ -1,0 +1,16 @@
+name: Generate Singapore Public Holiday from MOM
+run-name: ${{ github.actor }} is generating Singapore public holiday JSON file
+on: [push]
+jobs:
+  Generate-Public-Holiday-Actions:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: action/checkout@v4
+    
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.24.2'
+    
+    - name: Generate public holiday JSON
+      run: go run .
