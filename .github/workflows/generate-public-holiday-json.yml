@@ -1,6 +1,10 @@
 name: Generate Singapore Public Holiday from MOM
 run-name: ${{ github.actor }} is generating Singapore public holiday JSON file
-on: [push]
+on:
+  push:
+    branches:
+  schedule:
+    - cron: '0 15 * * *'
 permissions:
   contents: write
 jobs:
