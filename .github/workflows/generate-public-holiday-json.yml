@@ -22,7 +22,7 @@ jobs:
     
     - name: Check for new changes to commit and push
       run: |
-        echo "GIT_STATUS=$(git status)"
+        echo "GIT_STATUS=$(git status)" >> $GITHUB_ENV
     
     - name: Commit generated files
       if: contains(env.GIT_STATUS, 'Untracked files:')
