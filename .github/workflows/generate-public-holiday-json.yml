@@ -19,9 +19,6 @@ jobs:
     
     - name: List "data" directory
       run: ls ./data
-    
-    - name: Run git status
-      run: git status
 
     - name: Check for new changes to commit and push
       run: |
