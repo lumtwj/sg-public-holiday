@@ -14,3 +14,6 @@ jobs:
     
     - name: Generate public holiday JSON
       run: go run .
+    
+    - name: List "data" directory
+      run: ls ./data
