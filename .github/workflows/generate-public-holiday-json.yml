@@ -23,10 +23,10 @@ jobs:
     - name: Check for new changes to commit and push
       id: verify_diff
       run: |
-        git diff --quiet ./data || echo "changed=true" >> $GITHUB_OUTPUT
+        git diff --quiet ./data || echo "changed=true" >> $GITHUB_ENV
     
     - name: Commit generated files
-      if: steps.verify_diff.outputs.changed == 'true'
+      if: $changed == 'true'
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
