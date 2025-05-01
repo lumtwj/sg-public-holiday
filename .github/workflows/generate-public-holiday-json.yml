@@ -23,7 +23,7 @@ jobs:
     - name: Check for new changes to commit and push
       id: verify_diff
       run: |
-        git diff --quiet ./data || echo "changed=true" >> $GITHUB_ENV
+        git diff --quiet . || echo "changed=true" >> $GITHUB_ENV
     
     - name: Commit generated files
       if: env.changed == 'true'
