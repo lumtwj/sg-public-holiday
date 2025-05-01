@@ -25,7 +25,7 @@ jobs:
         echo "GIT_STATUS=$(git status)"
     
     - name: Commit generated files
-      if: contains(env.GIT_STATUS, 'Changes to be committed:')
+      if: contains(env.GIT_STATUS, 'Untracked files:')
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
