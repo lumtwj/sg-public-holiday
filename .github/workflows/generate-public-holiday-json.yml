@@ -22,10 +22,10 @@ jobs:
     
     - name: Check for new changes to commit and push
       run: |
-        echo "GIT_STATUS=$(git status)" >> $GITHUB_ENV
+        git status | grep -q 'nothing to commit' || echo "CHANGES=true" >> $GITHUB_ENV
     
     - name: Commit generated files
-      if: contains(env.GIT_STATUS, 'Untracked files:')
+      if: env.CHANGES == 'true'
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
